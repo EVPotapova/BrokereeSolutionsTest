@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{39BAF330-193F-419A-9EAE-0F5504930A3B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>BrokereeSolutions</RootNamespace>
-    <AssemblyName>BrokereeSolutions</AssemblyName>
+    <ProjectGuid>{B0EA7F56-1DE3-47EB-876B-046FB79A121D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrokereeSolutions.Services</RootNamespace>
+    <AssemblyName>BrokereeSolutions.Services</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,20 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Process.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BrokereeSolutions.Models\BrokereeSolutions.Models.csproj">
       <Project>{F90C4CA9-F08F-4266-B370-E8F111149A82}</Project>
       <Name>BrokereeSolutions.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BrokereeSolutions.Services\BrokereeSolutions.Services.csproj">
-      <Project>{B0EA7F56-1DE3-47EB-876B-046FB79A121D}</Project>
-      <Name>BrokereeSolutions.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

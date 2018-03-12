@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BrokereeSolutions.Models;
+using BrokereeSolutions.Services;
+using System;
+using System.Threading;
 
 namespace BrokereeSolutions
 {
@@ -10,6 +9,21 @@ namespace BrokereeSolutions
     {
         static void Main(string[] args)
         {
+
+            Process process = new Process(@"C:\BSTest\Input", DocumentTypeEnum.Csv);
+
+            process.ProcessBinaryFiles().GetAwaiter();
+            process.GetTasksStatuses();
+            while (true)
+            {
+                Console.ReadLine();
+                process.GetTasksStatuses();
+            }
+
         }
+
+
     }
+
+
 }

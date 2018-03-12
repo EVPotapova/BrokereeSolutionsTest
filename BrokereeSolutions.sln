@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokereeSolutions", "BrokereeSolutions\BrokereeSolutions.csproj", "{39BAF330-193F-419A-9EAE-0F5504930A3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokereeSolutions.Tests", "BrokereeSolutions.Tests\BrokereeSolutions.Tests.csproj", "{421B04D7-CE28-4980-B9BB-A4624118805E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokereeSolutions.Models", "BrokereeSolutions.Models\BrokereeSolutions.Models.csproj", "{F90C4CA9-F08F-4266-B370-E8F111149A82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokereeSolutions.Services", "BrokereeSolutions.Services\BrokereeSolutions.Services.csproj", "{B0EA7F56-1DE3-47EB-876B-046FB79A121D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{39BAF330-193F-419A-9EAE-0F5504930A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39BAF330-193F-419A-9EAE-0F5504930A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39BAF330-193F-419A-9EAE-0F5504930A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{421B04D7-CE28-4980-B9BB-A4624118805E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{421B04D7-CE28-4980-B9BB-A4624118805E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{421B04D7-CE28-4980-B9BB-A4624118805E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{421B04D7-CE28-4980-B9BB-A4624118805E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90C4CA9-F08F-4266-B370-E8F111149A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90C4CA9-F08F-4266-B370-E8F111149A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90C4CA9-F08F-4266-B370-E8F111149A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90C4CA9-F08F-4266-B370-E8F111149A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0EA7F56-1DE3-47EB-876B-046FB79A121D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0EA7F56-1DE3-47EB-876B-046FB79A121D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0EA7F56-1DE3-47EB-876B-046FB79A121D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0EA7F56-1DE3-47EB-876B-046FB79A121D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
