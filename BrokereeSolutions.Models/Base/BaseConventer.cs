@@ -2,19 +2,23 @@
 
 namespace BrokereeSolutions.Models
 {
-    public abstract class BaseConventer
+    public abstract class BaseConverter
     {
-        public BaseConventer(string fileName, DocumentTypeEnum resultType)
+        public BaseConverter(string fileName, DocumentTypeEnum resultType)
         {
-            this.FileName = fileName;
+            FileName = fileName;
+            string newName;
+            
             switch (resultType)
             {
                 case DocumentTypeEnum.Csv:
-                    var newName = Path.Combine(Path.GetDirectoryName(fileName), Path.GetFileNameWithoutExtension(fileName) + ".csv");
+                    newName = Path.Combine(Path.GetDirectoryName(fileName), Path.GetFileNameWithoutExtension(fileName) + ".csv");
                     Result = new CsvDocumentType(newName);
                     break;
                 default:
-                    //TODO: ???
+                    //TODO: Test purposes
+                    newName = Path.Combine(Path.GetDirectoryName(fileName), Path.GetFileNameWithoutExtension(fileName) + ".csv");
+                    Result = new CsvDocumentType(newName);
                     break;
             }
         }

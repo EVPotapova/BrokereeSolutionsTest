@@ -2,7 +2,7 @@
 
 namespace BrokereeSolutions.Models
 {
-    public class BinaryConverter : BaseConventer
+    public class BinaryConverter : BaseConverter
     {
         public BinaryConverter(string fileName, DocumentTypeEnum resultType) : base(fileName, resultType) { }
         public override void ReadAndWrite()

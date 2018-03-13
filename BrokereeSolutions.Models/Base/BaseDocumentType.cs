@@ -4,7 +4,7 @@
     {
         public BaseDocumentType(string fileName)
         {
-            this.FileName = fileName;
+            FileName = fileName;
         }
         public string FileName { get; set; }
 
