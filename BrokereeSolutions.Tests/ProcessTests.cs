@@ -19,7 +19,7 @@ namespace BrokereeSolutions.Tests
         [TestMethod]
         public void GetNotExistsTaskStatusTest()
         {
-            Process process = new Process(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"TestItems"), DocumentTypeEnum.Binary, DocumentTypeEnum.Csv);
+            Process process = new Process(Path.Combine("TestItems"), DocumentTypeEnum.Binary, DocumentTypeEnum.Csv);
 
             var status = process.GetTaskStatus(666);
 

@@ -16,17 +16,31 @@ namespace BrokereeSolutions
              * 4. Добавить генерацию нужного конвертера в Process (выполняет роль менеджера для конвертеров)
              * 5. Добавить генерацию результирующего типа документа в BaseConverter
              */
-            Process process = new Process(@"C:\BSTest\Input", DocumentTypeEnum.Binary, DocumentTypeEnum.Csv);
-
-            var awaiter = process.ProcessFiles().GetAwaiter();
-
-            while (!process.IsCompleted)
+            try
             {
-                Console.ReadLine();
-                Console.WriteLine(process.GetTasksStatuses());
+                //to params
+                Process process = new Process(@"C:\BSTest\Input", DocumentTypeEnum.Binary, DocumentTypeEnum.Csv);
+
+                var awaiter = process.ProcessFiles().GetAwaiter();
+
+                while (!process.IsCompleted)
+                {
+                    //for test purposes
+                    Console.ReadLine();
+                    Console.WriteLine(process.GetTasksStatuses());
+                }
+
+                Console.WriteLine("Complete!");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error. {ex.Message}");
             }
 
-            Console.WriteLine("Complete!");
             Console.ReadLine();
         }
 

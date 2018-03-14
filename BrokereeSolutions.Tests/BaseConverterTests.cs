@@ -12,7 +12,7 @@ namespace BrokereeSolutions.Tests
         [TestMethod]
         public void BinaryToCsvWriteTest()
         {
-            BaseConverter converter = new BinaryConverter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestItems\testFile"), DocumentTypeEnum.Csv);
+            BaseConverter converter = new BinaryConverter(Path.Combine("TestItems", "testFile"), DocumentTypeEnum.Csv);
             converter.ReadAndWrite();
             //Не ожидается исключение
         }

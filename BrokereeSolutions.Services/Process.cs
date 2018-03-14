@@ -46,22 +46,21 @@ namespace BrokereeSolutions.Services
             Result.Tasks.Clear();
 
 
-            try
-            {
-                var files = Directory.EnumerateFiles(InputDirectory);
-                var groups = files.Split(5);//TODO: to settings/program params, количество одновременно обрабатываемых файлов
 
-                foreach (var gr in groups)
-                    for (int i = 0; i < gr.Count(); i++)
+            var files = Directory.EnumerateFiles(InputDirectory);
+            var groups = files.Split(5);//TODO: to settings/program params, количество одновременно обрабатываемых файлов
+
+            foreach (var gr in groups)
+                for (int i = 0; i < gr.Count(); i++)
+                {
+                    var filePath = gr.ElementAt(i);
+                    BaseConverter converter = GetConverter(filePath);
+                    BaseTask bTask = new BaseTask
                     {
-                        var filePath = gr.ElementAt(i);
-                        BaseConverter converter = GetConverter(filePath);
-                        BaseTask bTask = new BaseTask
-                        {
-                            FileName = Path.GetFileName(filePath)
-                        };
-
-
+                        FileName = Path.GetFileName(filePath)
+                    };
+                    try
+                    {
                         if (i != 0)
                         {
                             var lastTask = Result.Tasks.FirstOrDefault(t => t.FileName.Equals(Path.GetFileName(gr.ElementAt(i - 1)))).SystemTask;
@@ -75,26 +74,27 @@ namespace BrokereeSolutions.Services
                         }
                         Result.Tasks.Add(bTask);
                     }
-
-
-
-            }
-            catch (AggregateException e)
-            {
-                for (int j = 0; j < e.InnerExceptions.Count; j++)
-                {
-                    //TODO: Message
+                    catch (AggregateException ex)
+                    {
+                        bTask.Error = ex;
+                    }
                 }
-            }
         }
 
-        //TODO: To report?
+        //TODO: To report ?
         public string GetTaskStatus(int id)
         {
             var task = Result.Tasks.FirstOrDefault(t => t.SystemTask != null && t.SystemTask.Id == id);
 
             if (task != null)
-                return $"{task.SystemTask.Id} - {task.FileName} - {task.Status}";
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine($"{task.SystemTask.Id} - {task.FileName} - {task.Status}"); if (task.Error != null)
+                {
+                    sb.AppendLine(task.Error.GetaAllMessages());
+                }
+                return sb.ToString();
+            }
             else
                 return "Task is not found.";
         }
@@ -102,9 +102,13 @@ namespace BrokereeSolutions.Services
         public string GetTasksStatuses()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (var task in Result.Tasks)
+            foreach (BaseTask task in Result.Tasks)
             {
                 sb.AppendLine($"{task.SystemTask.Id} - {task.FileName} - {task.Status}");
+                if(task.Error!=null)
+                {
+                    sb.AppendLine(task.Error.GetaAllMessages());
+                }
             }
             return sb.ToString();
         }
